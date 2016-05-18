@@ -13,8 +13,6 @@ build:
   number: 0
   skip: True  # [win]
 
-requirements:
-
 test:
   commands:
     - test -e $PREFIX/lib/libunistring.so  # [linux]
