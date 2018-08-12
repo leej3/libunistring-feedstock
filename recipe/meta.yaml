@@ -13,6 +13,12 @@ build:
   number: 0
   skip: True  # [win]
 
+requirements:
+  build:
+    - make
+    - {{ compiler('c') }}
+  host:
+
 test:
   commands:
     - test -e $PREFIX/lib/libunistring.so  # [linux]
