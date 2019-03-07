@@ -10,7 +10,7 @@ source:
   sha256: a82e5b333339a88ea4608e4635479a1cfb2e01aafb925e1290b65710d43f610b
 
 build:
-  number: 1000
+  number: 0
   skip: True  # [win]
   run_exports:
     # https://abi-laboratory.pro/?view=timeline&l=libunistring
