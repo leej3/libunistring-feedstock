@@ -14,7 +14,7 @@ build:
   skip: True  # [win]
   run_exports:
     # https://abi-laboratory.pro/?view=timeline&l=libunistring
-    - {{ pin_subpackage('libidn2', min_pin='x', max_pin='x') }}
+    - {{ pin_subpackage('libunistring', min_pin='x', max_pin='x') }}
 
 requirements:
   build:
