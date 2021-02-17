@@ -10,17 +10,28 @@ source:
   sha256: eb8fb2c3e4b6e2d336608377050892b54c3c983b646c561836550863003c05d7
 
 build:
+{% if bootstrapping == 'yes' %}
+  # Please increment by two
   number: 0
+  string: h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}_bootstrapping
+{% else %}
+  # Keep above the number of the _bootstrapping package
+  number: 1
+{% endif %}
   skip: True  # [win]
   run_exports:
     # https://abi-laboratory.pro/?view=timeline&l=libunistring
     - {{ pin_subpackage('libunistring', min_pin='x', max_pin='x') }}
+  script_env:
+    - BOOTSTRAPPING={{ bootstrapping }}
 
 requirements:
   build:
     - {{ compiler('c') }}
+{% if bootstrapping != 'yes' %}
     - make
   host:
+{% endif %}
 
 test:
   commands:
